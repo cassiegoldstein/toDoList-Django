@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("You are at home")
+    return render(request, 'index.html')
+
+def listOfTasks(request):
+     return render(request, 'pastTasks.html')
