@@ -17,6 +17,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index),
-    path('pastTasks/', views.listOfTasks),
+    path('', views.index, name="index"),
+    path('pastTasks/', views.listOfTasks, name="pastTasks"),
 ]
