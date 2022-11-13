@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 window.addEventListener('load', () => {
 const form = document.querySelector('form');
 const input = document.querySelector('#new-task-input');
@@ -9,6 +11,25 @@ form.addEventListener('submit', (e) => {
     const taskToAdd = input.value;
     const taskElement = document.createElement("div");
     taskElement.classList.add("task");
+
+    const checkMark = document.createElement("div");
+    checkMark.classList.add("check");
+    taskElement.appendChild(checkMark);
+
+
+    const checkButton = document.createElement("button");
+    checkButton.classList.add("checkmark");
+    checkMark.appendChild(checkButton);
+
+
+    const faIcon = document.createElement("i");
+    faIcon.classList.add("fa-regular");
+    faIcon.classList.add("fa-square-check");
+    faIcon.classList.add("fa-lg");
+
+    checkButton.appendChild(faIcon);
+
+
     const taskContent = document.createElement("div");
     taskContent.classList.add("content");
 
@@ -32,7 +53,7 @@ form.addEventListener('submit', (e) => {
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
     deleteButton.innerText = 'Delete';
-    
+
 
     actions.appendChild(editButton);
     actions.appendChild(deleteButton);
@@ -42,24 +63,37 @@ form.addEventListener('submit', (e) => {
     listOfTasks.appendChild(taskElement);
 
     input.value = '';
-    
+
     editButton.addEventListener('click', () => {
-        if(editButton.innerText === "Edit"){
+        if (editButton.innerText === "EDIT") {
             taskText.removeAttribute("readonly");
-            editButton.innerText = "Save";
-        }
-        else{
+            editButton.innerText = "SAVE";
+        } else {
             taskText.setAttribute("readonly", "readonly");
             editButton.innerText = "Edit";
         }
     });
-    
-     deleteButton.addEventListener('click', () => {
+
+    deleteButton.addEventListener('click', () => {
+        const completedTask = taskToAdd;
+        axios.post('task', {'task': completedTask}).then((response)=>{
+            console.log(response)
+        });
+
         listOfTasks.removeChild(taskElement);
     });
-    
+
+    checkButton.addEventListener('click', () => {
+        var currentOpacity = window.getComputedStyle(taskElement).opacity;
+        if (currentOpacity === "0.5") {
+            taskElement.style.opacity = 1;
+        } else {
+            taskElement.style.opacity = 0.5;
+        }
+    });
 
 });
+
 
 });
 

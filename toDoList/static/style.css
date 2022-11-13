@@ -1,0 +1,228 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    height: 100%;
+    background-image: linear-gradient(#80b0bb, #c2dbe1);
+}
+
+header h1 {
+    padding-left: 15px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-transform: capitalize;
+
+}
+
+header h4 {
+    margin-top: 17px;
+    padding-left: 80px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-transform: capitalize;
+
+}
+
+#new-task-form {
+    display: flex;
+}
+
+#new-task-input {
+    flex: 1 1 0%;
+    padding: 1rem;
+    border-radius: 15px;
+    font-size: 1.25rem;
+    display: flex;
+    border: none;
+    outline: none;
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+
+::placeholder {
+    font-size: 20px;
+    color: gray;
+    font-family: 'Lato', sans-serif;
+}
+
+
+header {
+    padding-top: 30px;
+    margin: auto;
+    width: 100%;
+}
+
+#new-task-submit {
+    color: white;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: flex;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    margin-left: 10px;
+}
+
+#new-task-submit:hover {
+    opacity: 0.8;
+}
+
+.task-list h2 {
+    padding-top: 50px;
+    padding-left: 20px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+main {
+    margin: auto;
+}
+
+#new-task-input {
+    padding-left: 25px;
+}
+
+.task {
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.text {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    color: gray;
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+.fa-regular{
+    color: gray;
+}
+
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Lato', sans-serif;
+    color: gray;
+}
+
+.task .content .text {
+    font-size: 1.125rem;
+    width: 85%;
+    display: block;
+}
+
+#tasks .task {
+    display: flex;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: white;
+    transition: 1s;
+}
+
+.task .content {
+    flex: 1 1 0%;
+}
+
+.task .content .text {
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 1s;
+}
+
+.edit:hover {
+    opacity: 0.8;
+}
+
+.delete:hover {
+    opacity: 0.8;
+}
+
+.checkmark {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+
+i {
+    width: 15px;
+    padding-top: 13px;
+    margin-right: 5px;
+}
+
+i:hover {
+    opacity: 0.8;
+}
+
+.task .content .text:not(:read-only) {
+	color: lightgray;
+}
+
+.link{
+    padding-left: 25px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+.additional_tasks{
+  background-color: #FFFFFF;
+  border: 0;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: gray;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+
+
+.additional_tasks:hover {
+  background-color: rgb(249,250,251);
+}
+
+.additional_tasks:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.additional_tasks:focus-visible {
+  box-shadow: none;
+}
