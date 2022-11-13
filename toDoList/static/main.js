@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 window.addEventListener('load', () => {
 const form = document.querySelector('form');
 const input = document.querySelector('#new-task-input');
