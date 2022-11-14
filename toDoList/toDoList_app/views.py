@@ -30,4 +30,4 @@ def add_task(request):
         new_task = Task(completedTask = body['task'])
         new_task.save()
 
-    return  JsonResponse('success')
+    return JsonResponse('success')

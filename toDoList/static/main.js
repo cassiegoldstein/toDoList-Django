@@ -74,8 +74,8 @@ form.addEventListener('submit', (e) => {
 
     deleteButton.addEventListener('click', () => {
         const completedTask = taskToAdd;
-        axios.post('task', {'task': completedTask}).then((response)=>{
-            console.log(response)
+        axios.post('task/', {'task': completedTask}).then((response)=>{
+            console.log(response);
         });
 
         listOfTasks.removeChild(taskElement);

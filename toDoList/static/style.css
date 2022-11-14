@@ -213,7 +213,6 @@ i:hover {
   margin-left: 20px;
 }
 
-
 .additional_tasks:hover {
   background-color: rgb(249,250,251);
 }
@@ -225,4 +224,12 @@ i:hover {
 
 .additional_tasks:focus-visible {
   box-shadow: none;
+}
+
+.past_tasks{
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-size: 30px;
 }
