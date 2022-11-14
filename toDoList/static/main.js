@@ -1,15 +1,22 @@
+//function runs on load
 window.addEventListener('load', () => {
 const form = document.querySelector('form');
 const input = document.querySelector('#new-task-input');
 const listOfTasks = document.querySelector("#tasks");
 
+//on submit
 form.addEventListener('submit', (e) => {
+    //prevent page from reloading
     e.preventDefault();
 
+    //get value from user input
     const taskToAdd = input.value;
+    
+    //create div with class task to carry task elements
     const taskElement = document.createElement("div");
     taskElement.classList.add("task");
 
+    //create div checkmark to create element for users to check complete
     const checkMark = document.createElement("div");
     checkMark.classList.add("check");
     taskElement.appendChild(checkMark);
@@ -19,7 +26,7 @@ form.addEventListener('submit', (e) => {
     checkButton.classList.add("checkmark");
     checkMark.appendChild(checkButton);
 
-
+    //add font awesome check icon
     const faIcon = document.createElement("i");
     faIcon.classList.add("fa-regular");
     faIcon.classList.add("fa-square-check");
@@ -27,12 +34,13 @@ form.addEventListener('submit', (e) => {
 
     checkButton.appendChild(faIcon);
 
-
+    //create task element
     const taskContent = document.createElement("div");
     taskContent.classList.add("content");
 
     taskElement.appendChild(taskContent);
-
+    
+    //create task text that is initially read only - will change on edit
     const taskText = document.createElement('input');
     taskText.classList.add('text');
     taskText.type = "text";
@@ -41,6 +49,7 @@ form.addEventListener('submit', (e) => {
 
     taskContent.appendChild(taskText);
 
+    //create action buttons
     const actions = document.createElement('actions');
     actions.classList.add('actions');
 
@@ -62,6 +71,7 @@ form.addEventListener('submit', (e) => {
 
     input.value = '';
 
+    //edit button actions - when edit is clicked, readonly is removed so user can edit task
     editButton.addEventListener('click', () => {
         if (editButton.innerText === "EDIT") {
             taskText.removeAttribute("readonly");
@@ -72,6 +82,7 @@ form.addEventListener('submit', (e) => {
         }
     });
 
+    //when delete is clicked, task element is deleted and task is sent to database
     deleteButton.addEventListener('click', () => {
         const completedTask = taskToAdd;
         axios.post('task/', {'task': completedTask}).then((response)=>{
@@ -81,6 +92,7 @@ form.addEventListener('submit', (e) => {
         listOfTasks.removeChild(taskElement);
     });
 
+    //if button is clicked, opacity is lowered, and vice versa
     checkButton.addEventListener('click', () => {
         var currentOpacity = window.getComputedStyle(taskElement).opacity;
         if (currentOpacity === "0.5") {
